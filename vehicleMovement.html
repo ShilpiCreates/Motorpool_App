@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorpool : Vehicle Movement</title>
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+            <div class="topLeft">
+                <a href="main.html" class="companyName">
+                    <h2>ORBITSYS TECHNOLOGIES PVT LTD</h2>
+                    <p>Sultan Singh, Management, Delhi</p>
+                </a>
+            </div>
+            <div class="topRight">
+                <div class="flag"><img src="images/Flag_of_India.png" alt=""></div>
+                <div class="logo">
+                    <img src="images/Isuzu.png" alt="">
+                </div>
+                <div class="ipAdd">IP: 182.71.123.54</div>
+            </div>
+        </header>
+        <nav>
+            <div class="navbar"></div>
+            <div class="navMenu">
+                <div class="backArrow"><i class="fa-solid fa-arrow-left"></i></div>
+                <div class="inner-car">
+                    <div class="contant">
+                        <h5>VCROSS <br>
+                            <span>M3GTGS864JB409876</span>
+                        </h5>
+                        <img src="images/menu-car.png" alt="">
+                    </div>
+                </div>
+                <ul class="menuList">
+                    <li><a href="IdentifyVehicle.html">
+                        <img src="images/IdentifyVehicle.png" alt="">
+                        <img src="images/IdentifyVehicle1.png" alt="">
+                    </a></li>
+                    <li><a href="joint_inspection.html">
+                        <img src="images/JointInspection.png" alt="">
+                        <img src="images/JointInspection1.png" alt="">
+                    </a></li>
+                    <li><a href="receiveVehicle.html">
+                        <img src="images/ReceiveVehicle.png" alt="">
+                        <img src="images/ReceiveVehicle1.png" alt="">
+                    </a></li>
+                    <li><a href="receive_inspection.html">
+                        <img src="images/ReceiveInspection.png" alt="">
+                        <img src="images/ReceiveInspection1.png" alt="">
+                    </a></li>
+                    <li><a href="#RegisterPDI.pdf">
+                        <img src="images/RegisterPDI.png" alt="">
+                        <img src="images/RegisterPDI1.png" alt="">
+                    </a></li>
+                    <li><a href="vehicleMovement.html">
+                        <img src="images/VehicleMovement.png" alt="">
+                        <img src="images/VehicleMovement1.png" alt="">
+                    </a></li>
+                    <li><a href="index.html">
+                        <img src="images/logout.png" alt="">
+                        <img src="images/logout1.png" alt="">
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="contantContainer">
+            <div class="VehicleInfo">
+                <div class="title_line">
+                    <span class="info"><i class="fas fa-info"></i></span>
+                    <h2>Vehicle Information</h2>
+                    <span class="btnMore"><i class="fa-solid fa-chevron-down"></i></span>
+                </div>
+                <div class="vehicleDetail active">
+                    <ul>
+                        <li>
+                            <span>VIN</span>
+                            <span>M3GTGS864JB409876</span>
+                        </li>
+                        <li>
+                            <span>Engine No.</span>
+                            <span>SF7624</span>
+                        </li>
+                        <li>
+                            <span>Model</span>
+                            <span>VCROSS</span>
+                        </li>
+                        <li>
+                            <span>Variant</span>
+                            <span>VCROSS AUV</span>
+                        </li>
+                        <li>
+                            <span>Location</span>
+                            <span>Storage Bay 1</span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span>Fuel</span>
+                            <span>Diesel</span>
+                        </li>
+                        <li>
+                            <span>Exterior</span>
+                            <span>Splash White</span>
+                        </li>
+                        <li>
+                            <span>MY/VY</span>
+                            <span>2016/2018 </span>
+                        </li>
+                        <li>
+                            <span>Key No.</span>
+                            <span>87654</span>
+                        </li>
+                        <li>
+                            <span>PO Status</span>
+                            <span>Allocated</span>
+                        </li>
+                    </ul>
+                    <div class="ModelCar">
+                        <img src="images/car-img2.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="bodyContainer">
+                <div class="bodyContentBox">
+                    <h2><img src="images/VehicleMovement1.png" alt=""> Vehicle Movement</h2>
+                    <div class="contant">      
+                        <div class="field">
+                            <div class="custom-select selectText">
+                                <select onclick="this.setAttribute('value', this.value);" value="">
+                                    <option class="selectOption" value=""></option>
+                                    <option class="selectOption" value="excellent">Gurgaon</option>
+                                    <option class="selectOption" value="Good">Gurgaon</option>
+                                    <option class="selectOption" value="Poor">Gurgaon</option>
+                                    <option class="selectOption" value="very Poor">Gurgaon</option>
+                                </select>
+                                <span class="floating-label noBG" id="SelectRegion">Select Vehicle Location</span>   
+                            </div>         
+                        </div>
+                           
+                        <div class="field">
+                            <div class="custom-select selectText">
+                                <select onclick="this.setAttribute('value', this.value);" value="">
+                                    <option class="selectOption" value=""></option>
+                                    <option class="selectOption" value="excellent">Storage Bay</option>
+                                    <option class="selectOption" value="Good">Storage Bay</option>
+                                    <option class="selectOption" value="Poor">Storage Bay</option>
+                                    <option class="selectOption" value="very Poor">Storage Bay</option>
+                                </select>
+                                <span class="floating-label noBG" id="SelectRegion">Select Bay</span>   
+                            </div>         
+                        </div>
+
+                        <button class="btn" onclick="window.location.href = '#';">Save</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

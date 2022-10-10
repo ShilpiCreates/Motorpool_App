@@ -1,0 +1,177 @@
+@mixin flexCenter($justifyContent) {
+  display: flex;
+  align-items: center;
+  justify-content: $justifyContent;
+}
+@mixin flexStart($justifyContent) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: $justifyContent;
+}
+
+@mixin field {
+    position: relative;
+    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label{
+        top: -0.2rem;
+        left: 0;
+        font-size: 1.3rem;
+        opacity: 1;
+        padding: 0 1rem 0 3.5rem;
+        &.noBG{
+            padding: 0 1rem;
+        }
+    }
+    
+    .custom-select:has(.select-arrow-active) .floating-label, 
+    .custom-select:has(.same-as-selected) .floating-label{
+        top: -0.2rem;
+        left: 0;
+        font-size: 1.3rem;
+        opacity: 1;
+        padding: 0 1rem 0 3.5rem;
+        &.noBG{
+            padding: 0 1rem;
+        }
+    }
+    .inputText, .selectText {
+        position: relative;
+        font-size: 1.6rem;
+        width: 30rem; height: 4rem;
+        border-bottom: .1rem solid $txt-color;
+        background: none;
+        padding: 2rem 1rem 0;
+    }
+    /*the container must be positioned relative:*/
+    .custom-select {
+      position: relative;
+    }
+    
+    .custom-select select {
+      display: none; /*hide original SELECT element:*/
+    }
+    
+    .select-selected{
+        position: relative;
+        bottom: 0.5rem;
+        color: $ligth_txt;
+    }
+    /*style the arrow inside the select element:*/
+    .select-selected:after {
+      position: absolute;
+      content: "\f078";
+      font: var(--fa-font-solid);
+      top: .5rem;
+      right: 0;
+      color: $txt-color;
+      transition: .1s ease;
+    }
+    
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected.select-arrow-active:after {
+        transform: rotate(180deg);
+    }
+    
+    /*style the items (options), including the selected item:*/
+    .select-items div,.select-selected {
+      cursor: pointer;
+      user-select: none;
+    }
+    .select-items div{        
+      color: $ligth_txt;
+      padding: .8rem 1.6rem;
+      border: 1px solid $light-color;
+      background: #fff;
+    }
+    
+    /*style items (options):*/
+    .select-items {
+      position: absolute;
+      top: calc(100% + .1rem);
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+    
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+      display: none;
+    }
+    
+    .select-items div:hover, .same-as-selected {
+      background: $primary;
+      color: #fff;
+    }
+    .hide, .show{
+        position: absolute;
+        width: 4rem; height: 4rem;
+        top: 0; right: 0;
+        background-size: 2rem;
+        cursor: pointer;
+        opacity: .5;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .hide{
+        background: url(../Images/hide.png) no-repeat;
+        background-position: right 1.8rem;
+    }
+    .show{
+        background: url(../Images/show.png) no-repeat;
+        background-position: right 1.8rem;
+    }
+    .floating-label {
+        position: absolute;
+        font-size: 1.6rem;
+        pointer-events: none;
+        padding-left: 3.5rem;
+        left: .5rem;
+        top: 1.3rem;
+        opacity: .6;
+        transition: 0.2s ease all;
+        &.noBG{
+            padding-left: 1rem;
+        }
+    }
+    
+.radio-input {
+  display: none;
+}
+
+.label-radio {
+  cursor: pointer;
+  position: relative;
+  padding-left: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.radio-button {
+  height: 1.6rem;
+  width: 1.6rem;
+  border: .1px solid $primary;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.radio-button::after {
+  content: "";
+  display: block;
+  height: .8rem;
+  width: .8rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $primary;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.radio-input:checked ~ .label-radio .radio-button::after {
+  opacity: 1;
+}
+}

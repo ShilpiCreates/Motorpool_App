@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorpool</title>
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="logo">
+            <img src="images/ISUZU-motorpool.png" alt="Isuzu Motorpool">
+        </div>
+    </div>
+    <div class="mainContainer">
+        <div class="login">
+            <div class="logo">
+                <img src="images/Isuzu.png" alt="Isuzu Logo">
+                <p>Motorpool</p>
+            </div>
+            <div class="userAdmin">
+                <div class="user active">user</div>
+                <div class="admin">admin</div>
+            </div>
+            <div class="userContent active">
+                <div class="field">
+                    <input type="password" class="inputText" required/>
+                    <span class="floating-label" id="CompanyID">Company ID</span>
+                    <label for="" class="show"></label>
+                </div>
+                <div class="field">
+                    <input type="text" class="inputText" required/>
+                    <span class="floating-label" id="UserID">User ID</span>
+                </div>
+                <div class="field">
+                    <input type="password" class="inputText" required/>
+                    <span class="floating-label" id="Password">Password</span>
+                    <label for="" class="show"></label>
+                </div>
+            </div>
+            <div class="adminContent">
+                <div class="field">
+                    <input type="text" class="inputText" required/>
+                    <span class="floating-label" id="UserID">User ID</span>
+                </div>
+                <div class="field">
+                    <input type="password" class="inputText" required/>
+                    <span class="floating-label" id="Password">Password</span>
+                    <label for="" class="show"></label>
+                </div>                
+            </div>
+            <button class="btn" onclick="window.location.href = 'main.html';">Login</button>
+        </div>
+
+    </div>
+
+    <script>
+        //-------Loader Page ------//
+        window.addEventListener("load", () =>{
+            const loader = document.querySelector('.loader');
+            loader.classList.add('loader__hidden');
+            loader.addEventListener('transitionend', () =>{
+                document.body.removeChild(loader);
+            });
+        });
+        
+//----------User & Admin----------//
+const userContent = document.querySelector('.userContent');
+const adminContent = document.querySelector('.adminContent');
+
+document.querySelector('.admin').onclick = () =>{
+    adminContent.classList.toggle('active');
+    userContent.classList.remove('active');
+    if(adminContent.classList.contains('active')){
+        document.querySelector('.admin').classList.add('active');
+        document.querySelector('.user').classList.remove('active');
+    }else{
+        document.querySelector('.admin').classList.remove('active');
+        document.querySelector('.user').classList.add('active');
+    }
+}
+
+document.querySelector('.user').onclick = () =>{
+    userContent.classList.toggle('active');
+    adminContent.classList.remove('active');
+    if(userContent.classList.contains('active')){
+        document.querySelector('.user').classList.add('active');
+        document.querySelector('.admin').classList.remove('active');
+    }else{
+        document.querySelector('.user').classList.remove('active');
+        document.querySelector('.admin').classList.add('active');
+    }
+}
+
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

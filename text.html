@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+      body{
+        position: absolute;
+        left: 50%; top: 0;
+        transform: translateX(-50%);
+      }
+        .floating-form {
+  width: 320px;
+}
+
+.floating-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.floating-input,
+.floating-select {
+  font-size: 14px;
+  padding: 4px 4px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.floating-input:focus,
+.floating-select:focus {
+  outline: none;
+  border-bottom: 2px solid #5264AE;
+}
+
+label {
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.floating-input:focus~label,
+.floating-input:not(:placeholder-shown)~label {
+  top: -18px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.floating-select:focus~label,
+.floating-select:not([value=""]):valid~label {
+  top: -18px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+
+/* active state */
+
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.floating-textarea {
+  min-height: 30px;
+  max-height: 260px;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+
+/* highlighter */
+
+.highlight {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 15%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+/* active state */
+
+.floating-input:focus~.highlight,
+.floating-select:focus~.highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+
+/* animation */
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+
+.Bar{
+  width: 100%;
+  height: 20px;            
+  background: #eee;
+  border: 1px solid darkgray;
+  position: relative;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+.progressBar{
+  position: relative;
+  width: 60%; /* Change width from backend according to "Take Feedback value (0 to 100)" */
+  height: 100%;
+  background: green;
+}
+.progressBar span{
+  position: absolute;
+  float: right;
+  left: 0;
+  right: 0;
+  top: -20px;
+  color: navy;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="floating-form">
+
+            
+          <div class="floating-label">
+            <input class="floating-input" type="text" placeholder=" ">
+            <span class="highlight"></span>
+            <label>Text</label>
+          </div>
+      
+      
+          <div class="floating-label">
+            <select class="floating-select" onclick="this.setAttribute('value', this.value);" value="">
+              <option value=""></option>
+              <option value="1">Alabama</option>
+              <option value="2">Boston</option>
+              <option value="3">Ohaio</option>
+              <option value="4">New York</option>
+              <option value="5">Washington</option>
+            </select>
+            <span class="highlight"></span>
+            <label>Select</label>
+          </div>
+      
+      
+        </div>
+      </section>
+
+      <section>        
+        <div class="Bar">
+          <div class="progressBar" id="newValue">
+            <span>60%</span>
+          </div>
+        </div>
+        <!-- <label class="titlecommon pull-right ng-binding">Take Feedback <span class="input">60</span></label> -->
+        <div class="value"><input class="changeValue" type="number" min="0" max="100"/></div>
+        
+      </section>
+
+      <script>
+          const progress = document.getElementById('newValue');
+          const progress1 = document.getElementById('newValue1');
+          document.addEventListener('input', () => {
+            const percent = +document.querySelector('input.changeValue').value;
+            if(percent >= 0 && percent <= 100) {
+              progress.style.width = 1 * percent + '%';
+            }
+          });
+          
+      </script>
+    
+</body>
+</html>
