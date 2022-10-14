@@ -1,5 +1,21 @@
 @import url("http://fonts.cdnfonts.com/css/gilroy-bold");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+@-webkit-keyframes orbit {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 html {
   font-size: 62.5%;
   text-transform: capitalize;
@@ -212,6 +228,13 @@ html {
 
 .field + .btn {
   margin-top: 3rem;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .btn {
@@ -979,6 +1002,27 @@ body:has(.loader) .mainContainer {
   .mainContainer {
     width: 100%;
   }
+  .mainContainer nav .navMenu .menuList li:nth-child(1) {
+    top: 17.5%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(2) {
+    top: 21.5%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(3) {
+    top: 31.5%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(4) {
+    top: 45%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(5) {
+    top: 58.5%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(6) {
+    top: 68.5%;
+  }
+  .mainContainer nav .navMenu .menuList li:nth-child(7) {
+    top: 72.5%;
+  }
 }
 @media (max-width: 768px) {
   .mainContainer .contantContainer .vehicleDetail.active {
@@ -993,6 +1037,27 @@ body:has(.loader) .mainContainer {
   .mainContainer .contantContainer .vehicleDetail.active .ModelCar {
     width: 50%;
     text-align: right;
+  }
+  .mainContainer .contantContainer .topBoxWhite .IdentifySearch {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+  .mainContainer .contantContainer .bodyContainer .bodyContentBox {
+    width: 80%;
+  }
+  .mainContainer .contantContainer .bodyContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .mainContainer .contantContainer .topBoxWhite .IdentifySearch {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2rem;
   }
 }
 @media (max-width: 460px) {
@@ -1031,20 +1096,13 @@ body:has(.loader) .mainContainer {
   .mainContainer .contantContainer .vehicleDetail ul li span:nth-child(1) {
     width: 7rem;
   }
-}
-@-webkit-keyframes orbit {
-  0% {
-    transform: rotate(180deg);
+  .mainContainer .IdentifySearch:has(.inputText) .field .inputText, .mainContainer .IdentifySearch:has(.selectText) .field .selectText {
+    width: auto;
   }
-  100% {
-    transform: rotate(360deg);
+  .mainContainer .contantContainer .bodyContainer .bodyContentBox {
+    width: 100%;
   }
-}
-@keyframes orbit {
-  0% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  .mainContainer .contantContainer .bodyContainer .bodyContentBox .contant {
+    margin-left: 0;
   }
 }/*# sourceMappingURL=style.css.map */

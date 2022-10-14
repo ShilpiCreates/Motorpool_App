@@ -2,6 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
 @import '../scss/mixin';
 @import '../scss/var';
+@import '../scss/animation';
 html{
     font-size: 62.5%;
     text-transform: capitalize;
@@ -46,6 +47,10 @@ html{
 }
 .field + .btn{
     margin-top: 3rem;
+}
+.flex-box{
+    @include flexCenter(space-between);
+    gap: 1rem;
 }
 .btn{
     background: $primary;
@@ -726,8 +731,17 @@ body:has(.loader) .mainContainer{
         }
     }
     .mainContainer{
-        width: 100%;         
-    }
+        width: 100%;
+        nav .navMenu .menuList li{
+            &:nth-child(1){top: 17.5%;}
+            &:nth-child(2){top: 21.5%;}
+            &:nth-child(3){top: 31.5%;}
+            &:nth-child(4){top: 45%;}
+            &:nth-child(5){top: 58.5%;}
+            &:nth-child(6){top: 68.5%;}
+            &:nth-child(7){top: 72.5%;}
+        }       
+    }  
 
 }
 
@@ -746,7 +760,26 @@ body:has(.loader) .mainContainer{
             text-align: right;
         }
     }
-    
+    .mainContainer .contantContainer .topBoxWhite .IdentifySearch {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 2rem;
+    }
+    .mainContainer .contantContainer .bodyContainer .bodyContentBox {
+        width: 80%;
+    }
+    .mainContainer .contantContainer .bodyContainer {
+        @include flexCenter(center);
+        flex-direction: column;
+    }
+}
+
+@media (max-width:600px) {
+    .mainContainer .contantContainer .topBoxWhite .IdentifySearch {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
 }
 
 @media (max-width:460px) {
@@ -784,16 +817,15 @@ body:has(.loader) .mainContainer{
         .contantContainer .vehicleDetail ul li span:nth-child(1) {
             width: 7rem;
         }
+        .IdentifySearch:has(.inputText) .field .inputText, .IdentifySearch:has(.selectText) .field .selectText {
+            width: auto;
+        }
+        .contantContainer .bodyContainer .bodyContentBox {
+            width: 100%;
+            .contant{
+                margin-left: 0;
+            }
+        }
     }
 }
 
-
-@keyframes orbit{
-    0%{
-        transform: rotate(180deg);
-
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
